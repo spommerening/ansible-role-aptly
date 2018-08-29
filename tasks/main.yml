@@ -1,0 +1,31 @@
+---
+- name: Import Aptly repository key
+  apt_key:
+    id: ED75B5A4483DA07C
+    keyserver: pool.sks-keyservers.net
+    state: present
+  tags: aptly
+
+- name: Add Aptly Debian/Ubuntu repository
+  apt_repository:
+    filename: aptly
+    repo: 'deb http://repo.aptly.info/ squeeze main'
+    state: present
+    update_cache: yes
+  tags: aptly
+
+- name: Install Aptly package
+  package:
+    name: "aptly={{ aptly_version }}"
+    state: present
+    update_cache: yes
+  tags: aptly
+
+- name: Create/update Aptly configuration file
+  template:
+    src: aptly.conf.j2
+    dest: /etc/aptly.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags: aptly

@@ -1,0 +1,19 @@
+---
+# Set Aptly default version to '1.3.0'
+# see https://www.aptly.info/download/ for current release status
+# (last updated: 28.08.2018)
+aptly_version: 1.3.0
+
+# Aptly default configuration (-> /etc/aptly.conf)
+aptly_rootdir: '/root/.aptly'
+aptly_download_concurrency: 4
+aptly_download_speedlimit: 0
+aptly_dependency_follow_suggests: 'false'
+aptly_dependency_follow_recommends: 'false'
+aptly_dependency_follow_all_variants: 'false'
+aptly_dependency_follow_source: 'false'
+aptly_gpg_disable_sign: 'false'
+aptly_gpg_disable_verify: 'false'
+aptly_download_source_packages: 'false'
+aptly_ppa_distributor_id: 'ubuntu'
+aptly_ppa_codename: ''
